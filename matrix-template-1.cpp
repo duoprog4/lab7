@@ -4,13 +4,14 @@
 #include <string>
 using namespace std;
 
-const int SIZE = 4; // Global variable for matrix size
+const int SIZE = 4;
 
 class Matrix {
 private:
-  int data[SIZE][SIZE];  // 2D array for matrix data (using int for simplicity)
+  int data[SIZE][SIZE];  
 
 public:
+
   void readfromfile(ifstream& file) {
     if (!file.is_open()) {
       cerr << "Failed to open file " << endl;
@@ -23,7 +24,7 @@ public:
     }
     return;
   }
-  // 2. Display a matrix
+
   void display() const {
     for (int i = 0; i < SIZE; ++i) {
       for (int j = 0; j < SIZE; ++j) {
@@ -33,7 +34,6 @@ public:
     }
   }
 
-  // 3. Add two matrices (operator overloading for +)
   Matrix operator+(const Matrix& other) const {
     Matrix result;
     for (int i = 0; i < SIZE; ++i) {
@@ -44,12 +44,11 @@ public:
     return result;
   }
 
-  // 4. Multiply two matrices (operator overloading for *)
   Matrix operator*(const Matrix& other) const {
     Matrix result;
     for (int i = 0; i < SIZE; ++i) {
       for (int j = 0; j < SIZE; ++j) {
-        result.data[i][j] = 0; // Initialize to zero
+        result.data[i][j] = 0;
         for (int k = 0; k < SIZE; ++k) {
           result.data[i][j] += this->data[i][k] * other.data[k][j];
         }
@@ -58,11 +57,10 @@ public:
     return result;
   }
 
-  // 5. Compute the sum of matrix diagonal elements
   int sumOfDiagonals() const {
     int sum = 0;
     for (int i = 0; i < SIZE; ++i) {
-      sum += data[i][i]; // Main diagonal
+      sum += data[i][i];
       sum += data[i][SIZE - 1 - i];
     }
     return sum;
