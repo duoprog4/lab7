@@ -1,4 +1,11 @@
-main: main.cpp
-	g++ -std=c++11 main.cpp -o main
+CXX = g++
+CXXFLAGS = -Wall
+
+TARGET = main
+SRC = matrix-template-1.cpp
+
+$(TARGET): $(SRC)
+    $(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+
 clean:
-	rm -f *.o main
+    rm -f $(TARGET) *.o

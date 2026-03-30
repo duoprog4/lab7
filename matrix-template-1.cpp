@@ -19,7 +19,7 @@ public:
     }
     for (int i = 0; i < SIZE; ++i) {
       for (int j = 0; j < SIZE; ++j) {
-        file >> data[i][j]; // Read matrix data from file
+        file >> data[i][j]; 
       }
     }
     return;
